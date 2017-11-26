@@ -2,6 +2,8 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { AppMinimize } from '@ionic-native/app-minimize';
+
 import { MyApp } from './app.component';
 
 import { RedditsPage } from '../pages/reddits/reddits';
@@ -18,6 +20,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   imports: [BrowserModule, HttpModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
   entryComponents: [MyApp, RedditsPage, SettingsPage, AboutPage, DetailsPage, TabsPage],
-  providers: [StatusBar, SplashScreen, { provide: ErrorHandler, useClass: IonicErrorHandler }]
+  providers: [
+    StatusBar,
+    SplashScreen,
+    AppMinimize,
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
+  ]
 })
 export class AppModule {}

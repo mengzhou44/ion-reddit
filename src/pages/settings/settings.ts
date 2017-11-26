@@ -10,13 +10,14 @@ export class SettingsPage {
   category: any;
   limit: any;
   constructor(public navCtrl: NavController) {
-    this.category = 'sports';
-    this.limit = 10;
+    this.category = localStorage.getItem('category') || 'sports';
+    this.limit = localStorage.getItem('limit') || 10;
   }
 
   setDefaults() {
     localStorage.setItem('category', this.category);
     localStorage.setItem('limit', this.limit);
+
     this.navCtrl.push(RedditsPage);
   }
 }
