@@ -16,8 +16,14 @@ export class MyApp {
 
   constructor(private platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     this.platform.ready().then(() => {
+      MyCordovaPlugin.getDate((result) => {
+        console.log("Today is", result);
+      })
+
       statusBar.styleDefault();
       splashScreen.hide();
     });
   }
 }
+
+
